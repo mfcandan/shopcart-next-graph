@@ -5,17 +5,43 @@ import {
   Image,
   NativeSelect,
   Text,
+  Box,
 } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
+  wrapper: {
+    padding: "4em 0",
+    "@media (max-width: 800px)": {
+      padding: "2em 1em",
+    },
+  },
   category: {
     fontSize: "26px",
     fontWeight: 700,
+    "@media (max-width: 800px)": {
+      fontSize: "18px",
+    },
+  },
+  slash: {
+    fontSize: "26px",
+    "@media (max-width: 800px)": {
+      fontSize: "18px",
+      padding: 0,
+      margin: 0,
+    },
   },
   topic: {
     fontSize: "26px",
     fontWeight: 400,
     color: "#9B9B9B",
+    "@media (max-width: 800px)": {
+      fontSize: "18px",
+    },
+  },
+  sorter: {
+    "@media (max-width: 800px)": {
+      display: "none",
+    },
   },
   sortToggle: {
     cursor: "pointer",
@@ -25,26 +51,34 @@ const useStyles = createStyles((theme) => ({
     fontSize: "30px",
     fontWeight: 700,
   },
+  filter: {
+    display: "none",
+    "@media (max-width: 800px)": {
+      display: "block",
+    },
+  },
 }));
 
 export function BreadCrumbSorter() {
   const { classes } = useStyles();
 
   return (
-    <Container size="lg" py="4em" px="0">
+    <Container size="lg" className={classes.wrapper}>
       <Group position="apart">
-        <Group>
-          <Text className={classes.category}>Photography</Text>
-          <Text size="xl">/</Text>
-          <Text className={classes.topic}>Premium Photos</Text>
+        <Group spacing={4}>
+          <Box p={0} m={0} className={classes.category}>
+            Photography
+          </Box>
+          <Box className={classes.slash}>/</Box>
+          <Box p={0} m={0} className={classes.topic}>
+            Premium Photos
+          </Box>
         </Group>
-        <Group>
-          <Group>
-            <Image src="./sorter.svg" />
-            <Text size="xl" color="#9B9B9B">
-              Sort By
-            </Text>
-          </Group>
+        <Group className={classes.sorter}>
+          <Image src="./sorter.svg" alt="sorter button" />
+          <Text size="xl" color="#9B9B9B">
+            Sort By
+          </Text>
           <NativeSelect
             className={classes.sortSelect}
             data={["Price", "Name"]}
@@ -52,6 +86,9 @@ export function BreadCrumbSorter() {
             size="lg"
           />
         </Group>
+        <Box className={classes.filter} onClick={() => alert("filter")}>
+          <Image src="./filter.svg" alt="filter button" />
+        </Box>
       </Group>
     </Container>
   );

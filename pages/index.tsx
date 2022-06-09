@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         <Nav />
         <HeroProduct />
         <BreadCrumbSorter />
-        <ProductSection />
+        {/* <ProductSection /> */}
       </main>
 
       <footer></footer>

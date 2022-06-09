@@ -17,6 +17,13 @@ const useStyles = createStyles((theme) => ({
     padding: "4em 0",
     "@media (max-width: 800px)": {
       padding: "0 1rem",
+      margin: "2em 0",
+    },
+  },
+  subTitle: {
+    display: "block",
+    "@media (max-width: 800px)": {
+      display: "none",
     },
   },
   alsoBuyWrapper: {
@@ -26,9 +33,6 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "flex-end",
     "@media (max-width: 800px)": {
       justifyContent: "flex-center",
-    },
-    h2: {
-      color: "red",
     },
   },
   productImage: {
@@ -52,10 +56,16 @@ export function HeroAboutSec() {
         <Grid>
           <Grid.Col sm={12} lg={6}>
             <Title order={3}>About the Samurai King Resting</Title>
-            <Text styles={{ display: "none" }} color="#656565" size="xl" weight="700" mt="0.5em">
+            <Text
+              className={classes.subTitle}
+              color="#656565"
+              size="xl"
+              weight="700"
+              mt="0.5em"
+            >
               Pets
             </Text>
-            <Text mt="0.5em">
+            <Text mt="2em">
               So how did the classical Latin become so incoherent? According to
               McClintock, a 15th century typesetter likely scrambled part of
               Cicero`s De Finibus in order to provide placeholder text to mockup
@@ -95,8 +105,8 @@ export function HeroAboutSec() {
                 alt="product 3 image"
               />
             </Group>
-            <Box className={classes.itemLeftMobile}>
-              <Title order={3} mt="2em" >
+            <Box className={classes.itemLeftMobile} mb="2em">
+              <Title order={3} my="1em">
                 Details
               </Title>
               <Text>Size: 1020 x 1020 pixel</Text>
