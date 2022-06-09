@@ -11,11 +11,18 @@ const useStyles = createStyles((theme) => ({
     padding: "3em 0 2em 0",
     borderBottom: "6px solid",
     borderColor: "#E4E4E4",
+    "@media (max-width: 800px)": {
+      padding: "1rem 2rem",
+    },
   },
   logo: {
     cursor: "pointer",
-    width: "12.5em",
+    maxWidth: "12.5em",
+    "@media (max-width: 800px)": {
+      maxWidth: "140px",
+    },
   },
+  
 }));
 
 export function Nav() {

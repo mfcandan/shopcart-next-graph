@@ -14,6 +14,12 @@ const useStyles = createStyles((theme) => ({
   button: {
     cursor: "pointer",
   },
+  cartImage:{
+    maxWidth:"4em",
+    "@media (max-width: 800px)": {
+      maxWidth: "2rem",
+    }, 
+  }
 }));
 
 export function CartBtn() {
@@ -31,7 +37,7 @@ export function CartBtn() {
           size={20}
           label={cartItemCount}
         >
-          <Image width="4em" src="./shopping-cart.svg" alt="Shopping Cart" />
+          <Image className={classes.cartImage} src="./shopping-cart.svg" alt="Shopping Cart" />
         </Indicator>
       </Group>
     </Box>

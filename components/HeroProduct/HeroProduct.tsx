@@ -19,22 +19,23 @@ import { useViewportSize } from "@mantine/hooks";
 const useStyles = createStyles((theme) => ({
   heroSec: {
     "@media (max-width: 800px)": {
-      padding: "0 1em",
+      padding: "0 1rem",
     },
   },
   title: {
-    marginTop: "4em",
-    marginBottom: "1.2em",
+    marginTop: "4rem",
+    marginBottom: "1.2rem",
   },
   textContent: {
     backgroundColor: "#FFFFFF",
     position: "absolute",
     justifyContent: "flex-end",
     fontWeight: "bold",
-    marginTop: "-3.5em",
-    padding: "1em 3em",
-    fontSize: "1.2em",
+    marginTop: "-3.5rem",
+    padding: "1rem 3rem",
+    fontSize: "1.2rem",
   },
+  
 }));
 
 export function HeroProduct() {

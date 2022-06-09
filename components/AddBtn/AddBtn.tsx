@@ -12,6 +12,10 @@ const useStyles = createStyles((theme) => ({
     fontSize: 24,
     letterSpacing: "0.2em",
     padding: "0.1em 1.5em 0.1em 1.5em",
+    "@media (max-width: 800px)": {
+      width: "100%",
+      marginTop: "1em",
+    },
   },
 }));
 

@@ -9,6 +9,10 @@ const useStyles = createStyles((theme, { width }: ILogo) => ({
   logo: {
     cursor: "pointer",
     width: width ? width : "12.5em",
+    maxWidth: "12.5em",
+    "@media (max-width: 800px)": {
+      maxWidth: "140px",
+    },
   },
 }));
 

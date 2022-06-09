@@ -15,12 +15,31 @@ const useStyles = createStyles((theme) => ({
     borderBottom: "6px solid",
     borderColor: "#E4E4E4",
     padding: "4em 0",
+    "@media (max-width: 800px)": {
+      padding: "0 1rem",
+    },
   },
   alsoBuyWrapper: {
     textAlign: "right",
   },
   alsoBuyBox: {
     justifyContent: "flex-end",
+    "@media (max-width: 800px)": {
+      justifyContent: "flex-center",
+    },
+    h2: {
+      color: "red",
+    },
+  },
+  productImage: {
+    "@media (max-width: 800px)": {
+      width: "31.2%",
+    },
+  },
+  itemLeftMobile: {
+    "@media (max-width: 800px)": {
+      textAlign: "left",
+    },
   },
 }));
 
@@ -31,9 +50,9 @@ export function HeroAboutSec() {
     <>
       <Container className={classes.aboutWrapper} size="lg">
         <Grid>
-          <Grid.Col span={6}>
-            <Title order={2}>About the Samurai King Resting</Title>
-            <Text color="#656565" size="xl" weight="700" mt="0.5em">
+          <Grid.Col sm={12} lg={6}>
+            <Title order={3}>About the Samurai King Resting</Title>
+            <Text styles={{ display: "none" }} color="#656565" size="xl" weight="700" mt="0.5em">
               Pets
             </Text>
             <Text mt="0.5em">
@@ -50,15 +69,34 @@ export function HeroAboutSec() {
               the classical Latin become so incoherent? According to McClintock.
             </Text>
           </Grid.Col>
-          <Grid.Col span={6} className={classes.alsoBuyWrapper}>
-            <Title order={2}>People also buy</Title>
-            <Box>
-              <Group className={classes.alsoBuyBox} spacing="xl" mt="2em">
-                <Image src="./alsobuy1.png" alt="product 1 image" />
-                <Image src="./alsobuy2.png" alt="product 2 image" />
-                <Image src="./alsobuy3.png" alt="product 3 image" />
-              </Group>
-              <Title order={3} mt="2em">
+          <Grid.Col sm={12} lg={6} className={classes.alsoBuyWrapper}>
+            <Title className={classes.itemLeftMobile} order={3} mt="0.5em">
+              People also buy
+            </Title>
+            <Group
+              align="center"
+              className={classes.alsoBuyBox}
+              mt="2em"
+              spacing="xs"
+            >
+              <Image
+                className={classes.productImage}
+                src="./alsobuy1.png"
+                alt="product 1 image"
+              />
+              <Image
+                className={classes.productImage}
+                src="./alsobuy2.png"
+                alt="product 2 image"
+              />
+              <Image
+                className={classes.productImage}
+                src="./alsobuy3.png"
+                alt="product 3 image"
+              />
+            </Group>
+            <Box className={classes.itemLeftMobile}>
+              <Title order={3} mt="2em" >
                 Details
               </Title>
               <Text>Size: 1020 x 1020 pixel</Text>
