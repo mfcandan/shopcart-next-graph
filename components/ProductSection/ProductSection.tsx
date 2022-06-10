@@ -1,58 +1,41 @@
 import {
   Container,
   createStyles,
+  Grid,
   Group,
   Image,
   NativeSelect,
   Text,
 } from "@mantine/core";
+import { ProductCard } from "../ProductCard/ProductCard";
 
 const useStyles = createStyles((theme) => ({
-  category: {
+  productSectionWrapper: {
     fontSize: "26px",
     fontWeight: 700,
   },
-  topic: {
-    fontSize: "26px",
-    fontWeight: 400,
-    color: "#9B9B9B",
-  },
-  sortToggle: {
-    cursor: "pointer",
-  },
-  sortSelect: {
-    minWidth: "3em",
-    fontSize: "30px",
-    fontWeight: 700,
-  },
+  filterSide:{
+    background: "red",
+    width: 500
+  }
 }));
 
 export function ProductSection() {
   const { classes } = useStyles();
 
   return (
-    <Container size="lg">
-      <Group position="apart">
-        <Group>
-          <Text className={classes.category}>Photography</Text>
-          <Text size="xl">/</Text>
-          <Text className={classes.topic}>Premium Photos</Text>
-        </Group>
-        <Group>
-          <Group>
-            <Image src="./sorter.svg" />
-            <Text size="xl" color="#9B9B9B">
-              Sort By
-            </Text>
+    <Container className={classes.productSectionWrapper} size="lg">
+      <Grid>
+        <Grid.Col lg={4} xl={4} md={4} className={classes.filterSide}></Grid.Col>
+        <Grid.Col lg={8} xl={8} md={8} sm={12}>
+          <Group position="center" spacing="xl">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
           </Group>
-          <NativeSelect
-            className={classes.sortSelect}
-            data={["Price", "Name"]}
-            variant="unstyled"
-            size="lg"
-          />
-        </Group>
-      </Group>
+        </Grid.Col>
+      </Grid>
     </Container>
   );
 }

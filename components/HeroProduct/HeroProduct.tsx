@@ -1,20 +1,14 @@
 import {
-  BackgroundImage,
-  Button,
-  Center,
+  Box,
   Container,
   createStyles,
   Group,
   Image,
   Text,
-  Box,
-  Header,
   Title,
-  MediaQuery,
 } from "@mantine/core";
 import { AddBtn } from "../AddBtn/AddBtn";
 import { HeroAboutSec } from "../HeroAboutSec/HeroAboutSec";
-import { useViewportSize } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   heroSec: {
