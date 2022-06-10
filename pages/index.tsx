@@ -7,6 +7,7 @@ import { BreadCrumbSorter } from "../components/BreadCrumbSorter/BreadCrumbSorte
 import { ProductSection } from "../components/ProductSection/ProductSection";
 
 import styles from "../styles/Home.module.css";
+import { FilterDrawer } from "../components/FilterDrawer/FilterDrawer";
 
 const Home: NextPage = () => {
   return (
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
         <HeroProduct />
         <BreadCrumbSorter />
         <ProductSection />
+        {/* <FilterDrawer /> */}
       </main>
 
       <footer></footer>

@@ -7,6 +7,45 @@ import {
   Text,
   Box,
 } from "@mantine/core";
+import { useState } from "react";
+import { FilterDrawer } from "../FilterDrawer/FilterDrawer";
+
+export function BreadCrumbSorter() {
+  const { classes } = useStyles();
+  const [opened, setOpened] = useState(false);
+
+  return (
+    <Container size="lg" className={classes.wrapper}>
+      <Group position="apart">
+        <Group spacing={4}>
+          <Box p={0} m={0} className={classes.category}>
+            Photography
+          </Box>
+          <Box className={classes.slash}>/</Box>
+          <Box p={0} m={0} className={classes.topic}>
+            Premium Photos
+          </Box>
+        </Group>
+        <Group className={classes.sorter}>
+          <Image src="./sorter.svg" alt="sorter button" />
+          <Text size="xl" color="#9B9B9B">
+            Sort By
+          </Text>
+          <NativeSelect
+            className={classes.sortSelect}
+            data={["Price", "Name"]}
+            variant="unstyled"
+            size="lg"
+          />
+        </Group>
+        <Box className={classes.filter} onClick={() => setOpened(true)}>
+          <Image src="./filter.svg" alt="filter button" />
+        </Box>
+        <FilterDrawer opened={opened} setOpened={setOpened} />
+      </Group>
+    </Container>
+  );
+}
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -58,38 +97,3 @@ const useStyles = createStyles((theme) => ({
     },
   },
 }));
-
-export function BreadCrumbSorter() {
-  const { classes } = useStyles();
-
-  return (
-    <Container size="lg" className={classes.wrapper}>
-      <Group position="apart">
-        <Group spacing={4}>
-          <Box p={0} m={0} className={classes.category}>
-            Photography
-          </Box>
-          <Box className={classes.slash}>/</Box>
-          <Box p={0} m={0} className={classes.topic}>
-            Premium Photos
-          </Box>
-        </Group>
-        <Group className={classes.sorter}>
-          <Image src="./sorter.svg" alt="sorter button" />
-          <Text size="xl" color="#9B9B9B">
-            Sort By
-          </Text>
-          <NativeSelect
-            className={classes.sortSelect}
-            data={["Price", "Name"]}
-            variant="unstyled"
-            size="lg"
-          />
-        </Group>
-        <Box className={classes.filter} onClick={() => alert("filter")}>
-          <Image src="./filter.svg" alt="filter button" />
-        </Box>
-      </Group>
-    </Container>
-  );
-}

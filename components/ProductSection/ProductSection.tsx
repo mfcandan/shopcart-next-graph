@@ -5,7 +5,9 @@ import {
   Grid,
   Pagination,
 } from "@mantine/core";
+import { FilterSide } from "../FilterSide/FilterSide";
 import { ProductList } from "../ProductList/ProductList";
+
 
 const useStyles = createStyles((theme) => ({
   productSectionWrapper: {
@@ -13,8 +15,6 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 700,
   },
   filterSide: {
-    background: "red",
-    width: 500,
     "@media (max-width: 800px)": {
       display: "none",
     },
@@ -28,13 +28,15 @@ export function ProductSection() {
     <Container className={classes.productSectionWrapper} size="lg">
       <Grid>
         <Grid.Col
-          lg={4}
-          xl={4}
-          md={4}
+          lg={3}
+          xl={3}
+          md={3}
           sm={12}
           className={classes.filterSide}
-        ></Grid.Col>
-        <Grid.Col lg={8} xl={8} md={8} sm={12}>
+        >
+          <FilterSide />
+        </Grid.Col>
+        <Grid.Col lg={9} xl={9} md={9} sm={12}>
           <ProductList />
         </Grid.Col>
       </Grid>
