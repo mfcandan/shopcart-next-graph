@@ -9,44 +9,6 @@ import {
   Image,
 } from "@mantine/core";
 
-const useStyles = createStyles((theme) => ({
-  aboutWrapper: {
-    marginTop: "4em",
-    borderBottom: "6px solid",
-    borderColor: "#E4E4E4",
-    padding: "4em 0",
-    "@media (max-width: 800px)": {
-      padding: "0 1rem",
-      margin: "2em 0",
-    },
-  },
-  subTitle: {
-    display: "block",
-    "@media (max-width: 800px)": {
-      display: "none",
-    },
-  },
-  alsoBuyWrapper: {
-    textAlign: "right",
-  },
-  alsoBuyBox: {
-    justifyContent: "flex-end",
-    "@media (max-width: 800px)": {
-      justifyContent: "flex-center",
-    },
-  },
-  productImage: {
-    "@media (max-width: 800px)": {
-      width: "31.2%",
-    },
-  },
-  itemLeftMobile: {
-    "@media (max-width: 800px)": {
-      textAlign: "left",
-    },
-  },
-}));
-
 export function HeroAboutSec() {
   const { classes } = useStyles();
 
@@ -118,3 +80,41 @@ export function HeroAboutSec() {
     </>
   );
 }
+
+const useStyles = createStyles((theme) => ({
+  aboutWrapper: {
+    marginTop: "4em",
+    borderBottom: "6px solid",
+    borderColor: "#E4E4E4",
+    padding: "4em 0",
+    "@media (max-width: 800px)": {
+      padding: "0 1rem",
+      margin: "2em 0",
+    },
+  },
+  subTitle: {
+    display: "block",
+    "@media (max-width: 800px)": {
+      display: "none",
+    },
+  },
+  alsoBuyWrapper: {
+    textAlign: "right",
+  },
+  alsoBuyBox: {
+    justifyContent: "flex-end",
+    "@media (max-width: 800px)": {
+      justifyContent: "flex-center",
+    },
+  },
+  productImage: {
+    "@media (max-width: 800px)": {
+      width: "31.2%",
+    },
+  },
+  itemLeftMobile: {
+    "@media (max-width: 800px)": {
+      textAlign: "left",
+    },
+  },
+}));

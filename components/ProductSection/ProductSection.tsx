@@ -1,11 +1,9 @@
 import {
+  Center,
   Container,
   createStyles,
   Grid,
-  Group,
-  Image,
-  NativeSelect,
-  Text,
+  Pagination,
 } from "@mantine/core";
 import { ProductList } from "../ProductList/ProductList";
 
@@ -14,10 +12,13 @@ const useStyles = createStyles((theme) => ({
     fontSize: "26px",
     fontWeight: 700,
   },
-  filterSide:{
+  filterSide: {
     background: "red",
-    width: 500
-  }
+    width: 500,
+    "@media (max-width: 800px)": {
+      display: "none",
+    },
+  },
 }));
 
 export function ProductSection() {
@@ -26,11 +27,20 @@ export function ProductSection() {
   return (
     <Container className={classes.productSectionWrapper} size="lg">
       <Grid>
-        <Grid.Col lg={4} xl={4} md={4} sm={12} className={classes.filterSide}></Grid.Col>
+        <Grid.Col
+          lg={4}
+          xl={4}
+          md={4}
+          sm={12}
+          className={classes.filterSide}
+        ></Grid.Col>
         <Grid.Col lg={8} xl={8} md={8} sm={12}>
           <ProductList />
         </Grid.Col>
       </Grid>
+      <Center my="3em">
+        <Pagination total={4} color="dark" radius="xl" />
+      </Center>
     </Container>
   );
 }

@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Pagination, Container, Center } from "@mantine/core";
 import { HeroProduct } from "../components/HeroProduct/HeroProduct";
 import { Nav } from "../components/Nav/Nav";
 import { BreadCrumbSorter } from "../components/BreadCrumbSorter/BreadCrumbSorter";
