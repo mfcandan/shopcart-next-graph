@@ -25,12 +25,12 @@ export function FilterSide() {
           spacing="xl"
         >
           <Checkbox value="people" label="People" />
-          <Checkbox value="svelte" label="Premium" />
-          <Checkbox value="ng" label="Pets" />
-          <Checkbox value="vue" label="Food" />
-          <Checkbox value="react" label="Landmarks" />
-          <Checkbox value="svelte" label="Cities" />
-          <Checkbox value="ng" label="Nature" />
+          <Checkbox value="premium" label="Premium" />
+          <Checkbox value="Pets" label="Pets" />
+          <Checkbox value="food" label="Food" />
+          <Checkbox value="landmarks" label="Landmarks" />
+          <Checkbox value="cities" label="Cities" />
+          <Checkbox value="nature" label="Nature" />
         </CheckboxGroup>
       </Box>
       <Divider my="1.5em" mr="1em" size="xs" color="#C2C2C2" />
