@@ -7,7 +7,7 @@ import {
   NativeSelect,
   Text,
 } from "@mantine/core";
-import { ProductCard } from "../ProductCard/ProductCard";
+import { ProductList } from "../ProductList/ProductList";
 
 const useStyles = createStyles((theme) => ({
   productSectionWrapper: {
@@ -26,14 +26,9 @@ export function ProductSection() {
   return (
     <Container className={classes.productSectionWrapper} size="lg">
       <Grid>
-        <Grid.Col lg={4} xl={4} md={4} className={classes.filterSide}></Grid.Col>
+        <Grid.Col lg={4} xl={4} md={4} sm={12} className={classes.filterSide}></Grid.Col>
         <Grid.Col lg={8} xl={8} md={8} sm={12}>
-          <Group position="center" spacing="xl">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </Group>
+          <ProductList />
         </Grid.Col>
       </Grid>
     </Container>
