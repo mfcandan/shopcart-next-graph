@@ -7,8 +7,45 @@ import {
   Text,
   Title,
 } from "@mantine/core";
+import { useViewportSize } from "@mantine/hooks";
+import { IProduct, useStore } from "../../store/productStore";
 import { AddBtn } from "../AddBtn/AddBtn";
 import { HeroAboutSec } from "../HeroAboutSec/HeroAboutSec";
+
+export function HeroProduct() {
+  const { classes } = useStyles();
+  const { products } = useStore();
+
+  let featuredProduct = products?.find(
+    (product: IProduct) => product.data.featured === true
+  );
+
+  return (
+    <>
+      <Container size="lg" p="0" className={classes.heroSec}>
+        <Group position="apart" className={classes.title}>
+          <Title order={1}>{featuredProduct?.data?.name}</Title>
+          <Box className={classes.btnWeb}>
+            {featuredProduct && <AddBtn product={featuredProduct} />}
+          </Box>
+        </Group>
+        <Image
+          width="89vw"
+          height="45vw"
+          fit="cover"
+          className={classes.featuredImage}
+          src={featuredProduct?.data?.image?.src}
+          alt={featuredProduct?.data?.image?.alt}
+        />
+        <Text className={classes.textContent}>Photo of the day</Text>
+        <Box className={classes.btnMobile}>
+          {featuredProduct && <AddBtn product={featuredProduct} />}
+        </Box>
+      </Container>
+      {featuredProduct && <HeroAboutSec featuredProduct={featuredProduct} />}
+    </>
+  );
+}
 
 const useStyles = createStyles((theme) => ({
   heroSec: {
@@ -48,27 +85,9 @@ const useStyles = createStyles((theme) => ({
       display: "block",
     },
   },
+  featuredImage: {
+    "@media (max-width: 800px)": {
+      height: "50vw",
+    },
+  },
 }));
-
-export function HeroProduct() {
-  const { classes } = useStyles();
-
-  return (
-    <>
-      <Container size="lg" p="0" className={classes.heroSec}>
-        <Group position="apart" className={classes.title}>
-          <Title order={1}>Samurai King Resting</Title>
-          <Box className={classes.btnWeb}>
-            <AddBtn onClick={() => alert("Added")} />
-          </Box>
-        </Group>
-        <Image src="./heroPhoto.png" alt="Dog sitting on the street" />
-        <Text className={classes.textContent}>Photo of the day</Text>
-        <Box className={classes.btnMobile}>
-          <AddBtn onClick={() => alert("Added")} />
-        </Box>
-      </Container>
-      <HeroAboutSec />
-    </>
-  );
-}

@@ -2,10 +2,16 @@ import { Group, GroupPosition } from "@mantine/core";
 import { ProductCard } from "../ProductCard/ProductCard";
 import { useViewportSize } from "@mantine/hooks";
 import { useEffect, useState } from "react";
+import { useStore } from "../../store/productStore";
+
+interface IProductList {
+  products: any;
+}
 
 export function ProductList() {
   const { width } = useViewportSize();
   const [position, setPosition] = useState<GroupPosition>();
+  const { products } = useStore();
 
   useEffect(() => {
     setPosition(width > 800 ? "left" : "center");
@@ -14,10 +20,9 @@ export function ProductList() {
   return (
     <>
       <Group position={position}>
-        <ProductCard img="./item1.png" />
-        <ProductCard img="./item2.png" />
-        <ProductCard img="./item3.png" />
-        <ProductCard img="./item4.png" />
+        {products?.map((product: any) => (
+          <ProductCard key={product.ts} product={product} />
+        ))}
       </Group>
     </>
   );

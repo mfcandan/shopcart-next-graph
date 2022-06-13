@@ -1,8 +1,37 @@
 import { Button, Container, createStyles, Header, Image } from "@mantine/core";
+import { IProduct, useStore } from "../../store/productStore";
 import { CartBtn } from "../CartBtn/CartBtn";
 
 interface IAddBtn {
-  onClick: Function;
+  product: IProduct;
+}
+
+export function AddBtn({ product }: IAddBtn) {
+  const { classes } = useStyles();
+  const { cartItems, addToCartProduct, isProductExist, setIsCartModalOpen } =
+    useStore();
+
+  const handleAddBtn = () => {
+    if (!isProductExist(product?.ref, cartItems)) {
+      addToCartProduct(product);
+      setIsCartModalOpen(true);
+    }
+  };
+
+  return (
+    <>
+      <Button
+        onClick={() => handleAddBtn()}
+        className={classes.btn}
+        color="dark"
+        radius="xs"
+        size="xl"
+        uppercase
+      >
+        ADD TO CART
+      </Button>
+    </>
+  );
 }
 
 const useStyles = createStyles((theme) => ({
@@ -18,22 +47,3 @@ const useStyles = createStyles((theme) => ({
     },
   },
 }));
-
-export function AddBtn({ onClick }: IAddBtn) {
-  const { classes } = useStyles();
-
-  return (
-    <>
-      <Button
-        onClick={() => onClick()}
-        className={classes.btn}
-        color="dark"
-        radius="xs"
-        size="xl"
-        uppercase
-      >
-        ADD TO CART
-      </Button>
-    </>
-  );
-}

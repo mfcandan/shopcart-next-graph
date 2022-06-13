@@ -8,8 +8,13 @@ import {
   Group,
   Image,
 } from "@mantine/core";
+import { IProduct } from "../../store/productStore";
 
-export function HeroAboutSec() {
+interface IHeroAboutSec {
+  featuredProduct: IProduct;
+}
+
+export function HeroAboutSec({ featuredProduct }: IHeroAboutSec) {
   const { classes } = useStyles();
 
   return (
@@ -17,7 +22,7 @@ export function HeroAboutSec() {
       <Container className={classes.aboutWrapper} size="lg">
         <Grid>
           <Grid.Col sm={12} lg={6}>
-            <Title order={3}>About the Samurai King Resting</Title>
+            <Title order={3}>{featuredProduct?.data?.name}</Title>
             <Text
               className={classes.subTitle}
               color="#656565"
@@ -25,21 +30,9 @@ export function HeroAboutSec() {
               weight="700"
               mt="0.5em"
             >
-              Pets
+              {featuredProduct?.data?.category}
             </Text>
-            <Text mt="2em">
-              So how did the classical Latin become so incoherent? According to
-              McClintock, a 15th century typesetter likely scrambled part of
-              Cicero`s De Finibus in order to provide placeholder text to mockup
-              various fonts for a type specimen book.So how did the classical
-              Latin become so incoherent? According to McClintock, a 15th
-              century typesetter likely scrambled part of Cicero`s De Finibus in
-              order to provide placeholder.
-            </Text>
-            <Text mt="2em">
-              text to mockup various fonts for a type specimen book.So how did
-              the classical Latin become so incoherent? According to McClintock.
-            </Text>
+            <Text mt="2em">{featuredProduct?.data?.details?.description}</Text>
           </Grid.Col>
           <Grid.Col sm={12} lg={6} className={classes.alsoBuyWrapper}>
             <Title className={classes.itemLeftMobile} order={3} mt="0.5em">
@@ -51,28 +44,31 @@ export function HeroAboutSec() {
               mt="2em"
               spacing="xs"
             >
-              <Image
-                className={classes.productImage}
-                src="./alsobuy1.png"
-                alt="product 1 image"
-              />
-              <Image
-                className={classes.productImage}
-                src="./alsobuy2.png"
-                alt="product 2 image"
-              />
-              <Image
-                className={classes.productImage}
-                src="./alsobuy3.png"
-                alt="product 3 image"
-              />
+              {featuredProduct?.data?.details?.recommendations.map((item) => (
+                <Image
+                  key={item.alt}
+                  src={item.src}
+                  alt={item.alt}
+                  className={classes.productImage}
+                  width="110px"
+                  height="150px"
+                />
+              ))}
             </Group>
             <Box className={classes.itemLeftMobile} mb="2em">
               <Title order={3} my="1em">
                 Details
               </Title>
-              <Text>Size: 1020 x 1020 pixel</Text>
-              <Text>Size: 15 mb</Text>
+              <Text>
+                Size: {featuredProduct?.data?.details?.dimmentions?.width} x{" "}
+                {featuredProduct?.data?.details?.dimmentions?.height} pixel
+              </Text>
+              <Text>
+                Size:{" "}
+                {featuredProduct?.data?.details?.size &&
+                  featuredProduct?.data?.details?.size / 1000}{" "}
+                mb
+              </Text>
             </Box>
           </Grid.Col>
         </Grid>

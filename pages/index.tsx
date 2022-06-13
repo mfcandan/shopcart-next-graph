@@ -1,11 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Pagination, Container, Center } from "@mantine/core";
+import { Pagination, Container, Center, Button } from "@mantine/core";
 import { HeroProduct } from "../components/HeroProduct/HeroProduct";
 import { Nav } from "../components/Nav/Nav";
 import { BreadCrumbSorter } from "../components/BreadCrumbSorter/BreadCrumbSorter";
 import { ProductSection } from "../components/ProductSection/ProductSection";
-
 import styles from "../styles/Home.module.css";
 import { FilterDrawer } from "../components/FilterDrawer/FilterDrawer";
 
