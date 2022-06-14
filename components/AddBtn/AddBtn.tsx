@@ -1,6 +1,5 @@
-import { Button, Container, createStyles, Header, Image } from "@mantine/core";
+import { Button, createStyles } from "@mantine/core";
 import { IProduct, useStore } from "../../store/productStore";
-import { CartBtn } from "../CartBtn/CartBtn";
 
 interface IAddBtn {
   product: IProduct;

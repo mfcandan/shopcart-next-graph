@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Drawer, Button, Group, ScrollArea } from "@mantine/core";
+import { Drawer, ScrollArea } from "@mantine/core";
 import { FilterSide } from "../FilterSide/FilterSide";
 
 interface IFilterDrawer {

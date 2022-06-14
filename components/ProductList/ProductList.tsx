@@ -1,12 +1,8 @@
 import { Group, GroupPosition } from "@mantine/core";
-import { ProductCard } from "../ProductCard/ProductCard";
 import { useViewportSize } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import { useStore } from "../../store/productStore";
-
-interface IProductList {
-  products: any;
-}
+import { ProductCard } from "../ProductCard/ProductCard";
 
 export function ProductList() {
   const { width } = useViewportSize();

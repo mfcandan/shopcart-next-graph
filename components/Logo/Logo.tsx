@@ -1,5 +1,4 @@
-import { Button, Container, createStyles, Header, Image } from "@mantine/core";
-import { CartBtn } from "../CartBtn/CartBtn";
+import { createStyles, Image } from "@mantine/core";
 
 interface ILogo {
   width?: string | number;

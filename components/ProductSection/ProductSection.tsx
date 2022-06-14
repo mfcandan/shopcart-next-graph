@@ -5,11 +5,11 @@ import {
   Grid,
   Pagination,
 } from "@mantine/core";
+import { useEffect } from "react";
+import useSWR from "swr";
+import { useStore } from "../../store/productStore";
 import { FilterSide } from "../FilterSide/FilterSide";
 import { ProductList } from "../ProductList/ProductList";
-import useSWR from "swr";
-import { IProduct, useStore } from "../../store/productStore";
-import { useEffect } from "react";
 
 export function ProductSection() {
   const { classes } = useStyles();

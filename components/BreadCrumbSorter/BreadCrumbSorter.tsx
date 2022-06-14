@@ -1,11 +1,11 @@
 import {
+  Box,
   Container,
   createStyles,
   Group,
   Image,
   NativeSelect,
   Text,
-  Box,
 } from "@mantine/core";
 import { useState } from "react";
 import { FilterDrawer } from "../FilterDrawer/FilterDrawer";
@@ -27,7 +27,7 @@ export function BreadCrumbSorter() {
           </Box>
         </Group>
         <Group className={classes.sorter}>
-          <Image src="./sorter.svg" alt="sorter button" />
+          <Image onClick={() => {}} src="./sorter.svg" alt="sorter button" />
           <Text size="xl" color="#9B9B9B">
             Sort By
           </Text>

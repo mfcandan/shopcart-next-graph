@@ -1,4 +1,4 @@
-import { Button, Container, createStyles, Header, Image } from "@mantine/core";
+import { Container, createStyles } from "@mantine/core";
 import { CartBtn } from "../CartBtn/CartBtn";
 import { Logo } from "../Logo/Logo";
 
@@ -22,7 +22,6 @@ const useStyles = createStyles((theme) => ({
       maxWidth: "140px",
     },
   },
-  
 }));
 
 export function Nav() {

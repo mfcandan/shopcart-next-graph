@@ -18,6 +18,7 @@ export function CartView() {
 
   const handleClear = () => {
     clearCart();
+    setIsCartModalOpen(false);
   };
 
   return (
@@ -49,17 +50,19 @@ export function CartView() {
                 </Title>
               </Center>
             )}
-            {<Button
-              onClick={() => handleClear()}
-              className={classes.clearBtn}
-              variant="outline"
-              color="dark"
-              radius="xs"
-              size="lg"
-              uppercase
-            >
-              CLEAR
-            </Button>}
+            {
+              <Button
+                onClick={() => handleClear()}
+                className={classes.clearBtn}
+                variant="outline"
+                color="dark"
+                radius="xs"
+                size="lg"
+                uppercase
+              >
+                CLEAR
+              </Button>
+            }
           </Stack>
         </Box>
       )}

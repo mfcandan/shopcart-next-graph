@@ -16,7 +16,6 @@ const currencies = {
 export function ProductCard({ product }: IProductCard) {
   const { classes } = useStyles();
   const { hovered, ref } = useHover();
-  const { addToCartProduct, isProductExist, cartItems } = useStore();
 
   const handleCurrency = () => {
     switch (product?.data?.currency) {
